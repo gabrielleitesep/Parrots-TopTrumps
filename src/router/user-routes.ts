@@ -5,7 +5,6 @@ import { signUp, signIn } from "../controller/user-controller.js";
 
 const userRouter = Router();
 
-userRouter.post("/signup", validate(signUpJOI), signUp);
-userRouter.post("/signin", validate(signInJOI), signIn);
-
+userRouter.post("/sign-in", validate(signInJOI), signIn);
+userRouter.post("/sign-up", validate(signUpJOI), signUp);
 export default userRouter;

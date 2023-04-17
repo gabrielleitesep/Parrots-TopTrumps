@@ -42,7 +42,6 @@ export async function signIn(req: Request, res: Response){
         if (!encrypted) {
             return res.sendStatus(401);
         }
-
         const userId = user.id;
 
         await postSession(token, userId);

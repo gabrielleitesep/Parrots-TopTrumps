@@ -1,9 +1,9 @@
-import { validator } from "../schema/user-schema.js";
+import Joi, { Schema } from 'joi';
 import { NextFunction, Request, Response} from "express";
 
-export const validate = schema => (req: Request, res: Response, next: NextFunction) => {
+export const validate = (schema: Schema) => (req: Request, res: Response, next: NextFunction) => {
     const payload = req.body;
-    const { error } = validator(schema, payload);
+    const { error } = schema.validate(payload);
 
     if (error) {
         const errors = error.details.map(detail => detail.message);
